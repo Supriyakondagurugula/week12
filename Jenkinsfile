@@ -22,21 +22,14 @@ pipeline {
 
         stage('Docker Login') {
             steps {
-                withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-creds',
-                    usernameVariable: 'DOCKERHUB_USER',
-                    passwordVariable: 'DOCKERHUB_TOKEN'
-                )]) {
-                    bat 'echo %DOCKERHUB_TOKEN% | docker login -u %DOCKERHUB_USER% --password-stdin'
-                }
+                bat 'docker login -u supriyamallesh -p Supriya@206'
             }
         }
 
         stage('Push Docker Image to Docker Hub') {
             steps {
-                echo "Push Docker Image to Docker Hub"
-                bat 'docker tag seleniumdemapp:v1 supriyamallesh/sample:seleniumtestimage'
-                bat 'docker push supriyamallesh/sample:seleniumtestimage'
+                bat 'docker tag seleniumdemoapp1:v1 supriyamallesh/seleniumtestimage:v1'
+                bat 'docker push supriyamallesh/seleniumtestimage:v1'
             }
         }
 
