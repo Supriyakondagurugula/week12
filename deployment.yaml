@@ -10,10 +10,10 @@ spec:
   template:
     metadata:
       labels:
-        app: seleniumtestdemoapp
+        app: seleniumtestdemoapp1
     spec:
       containers:
         - name: seleniumtestdemoapp
-          image: supriyamallesh/sample:seleniumtestimage
+          image: supriyamallesh/seleniumtestimage:v1
           ports:
             - containerPort: 5000
